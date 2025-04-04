@@ -1,0 +1,85 @@
+
+.header {
+    height: 60px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+    position: fixed;
+    left: 15%;
+    top: 0;
+    width: 85%;
+  }
+  
+  /* Header Content */
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 0 20px;
+  }
+  
+  /* Header Title */
+  .header-title h1 {
+    font-size: 20px;
+    font-weight: 500;
+    color: #333;
+    margin: 0;
+  }
+  
+  /* Header Actions Container */
+  .header-actions {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Action Icons */
+  .action-icons {
+    display: flex;
+    margin-right: 20px;
+  }
+  
+  .icon-button {
+    background: none;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .icon-button:hover {
+    background-color: #f0f0f0;
+  }
+  
+  /* User Profile */
+  .user-profile {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #eee;
+  }
+  
+  .avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .dropdown-icon {
+    margin-left: 5px;
+    font-size: 10px;
+    color: #777;
+  }
