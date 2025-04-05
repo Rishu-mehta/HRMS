@@ -13,7 +13,7 @@ const Sidebar = () => {
       
       {/* Search Box */}
       <div className="sidebar-search">
-        <Search className="search-icon" size={16} />
+        <Search className="sidebar-search-icon" size={16} />
         <input type="text" placeholder="Search" />
       </div>
       

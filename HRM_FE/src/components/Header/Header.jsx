@@ -7,7 +7,7 @@ const getPageTitle = () => {
   const location = useLocation();
   switch (location.pathname) {
     case '/':
-      return 'Dashboard';
+      return 'Candidates';
     case '/candidates':
       return 'Candidate Management';
     case '/employees':

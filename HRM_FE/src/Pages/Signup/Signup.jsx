@@ -47,7 +47,7 @@ const Signup = () => {
 
     try {
       // Replace with your actual API endpoint
-      const response = await axios.post(`${baseURL}/api/signup`,
+      const response = await axios.post(`${baseURL}/api/user/signup`,
          {
           headers: {
             'Content-Type': 'application/json'

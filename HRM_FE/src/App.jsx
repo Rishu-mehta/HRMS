@@ -4,9 +4,8 @@ import Signup from './Pages/Signup/Signup';
 import Login from './Pages/Login/Login';
 import './index.css'
 
-// import Candidates from './components/candidate/Candidates';
-import Employees from './components/Employee/Employee';
-// import Attendance from './components/attendance/Attendance';
+import Employees from './Pages/Employee/Employee';
+import Attendance from './Pages/Attendance/Attendance';
 // import Leaves from './components/leaves/Leaves';
 import Sidebar from './components/Sidebar/Sidebar';
 import Header from './components/Header/Header';
@@ -26,9 +25,10 @@ function App() {
 
               <Route path="/employees" element={<ProtectedRoute><Layout><Employees /></Layout></ProtectedRoute>} />
               <Route path="/" element={<ProtectedRoute><Layout><Candidates /></Layout></ProtectedRoute>} />
+              <Route path="/attendance" element={<ProtectedRoute><Layout><Attendance /></Layout></ProtectedRoute>} />
            {/* 
            
-            <Route path="/attendance" element={<ProtectedRoute><Layout><Attendance /></Layout></ProtectedRoute>} />
+            
             <Route path="/leaves" element={<ProtectedRoute><Layout><Leaves /></Layout></ProtectedRoute>} />
              <Route path="*" element={<Navigate to="/" replace />} />  */}
           </Routes>
@@ -41,11 +41,11 @@ function App() {
 
 const Layout = ({ children  }) => {
   return (
-    <div className="layout">
+    <div className="app-container">
       <Sidebar />
-      <div className="main-content">
+      <div className="content-area">
         <Header />
-        <div className="content-area">
+        <div className="">
           {children}
         </div>
       </div>

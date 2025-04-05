@@ -16,9 +16,9 @@ const Login = () => {
   const [formErrors, setFormErrors] = useState({});
   const { login, error, isAuthenticated } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [loginError, setLoginError] = useState('');
 
   useEffect(() => {
-    // Redirect if already authenticated
     if (isAuthenticated) {
       navigate('/');
     }
@@ -47,15 +47,21 @@ const Login = () => {
     });
   };
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoginError(''); 
+    
     if (validateForm()) {
       const success = await login(formData);
       if (success) {
         navigate('/');
+      } else {
+        setLoginError(error || 'Login failed. Please try again.');
       }
     }
   };
+  
 
   return (
     <div className="full-container">
@@ -112,9 +118,9 @@ const Login = () => {
             <div className="forgot-password">
               <Link to="/forgot-password">Forgot Password?</Link>
             </div>
-
+            {loginError && <p className="error-message">{loginError}</p>}
             <button type="submit" className="login-btn"onClick={handleSubmit}>Login</button>
-
+  
             <p className="signup-link">
               Don't have an account? <Link to="/signup">Sign Up</Link>
             </p>

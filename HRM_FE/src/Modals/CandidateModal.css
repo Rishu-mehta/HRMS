@@ -1,0 +1,230 @@
+/* CandidateModal.css */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+   
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  .candidate-modal {
+    background: white;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 800px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+  }
+  
+  .modal-header {
+    background-color: var(--purple);
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+  }
+  
+  .modal-header h2 {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0;
+   
+  }
+ 
+  .close-button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+  }
+  
+  .close-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .modal-body {
+    padding: 20px 40px 20px 20px;
+  }
+  
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+  }
+  
+  .form-group {
+    width: 100%;
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 13px;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .form-input:focus {
+    border-color:var(--purple);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(90, 15, 200, 0.1);
+  }
+  
+  .form-input::placeholder {
+    color: #aaa;
+  }
+  
+  .file-input-wrapper {
+    position: relative;
+    display: flex;
+  }
+  
+  .hidden-file-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  
+  .file-upload-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-left: none;
+    border-radius: 0 4px 4px 0;
+    padding: 0 12px;
+    cursor: pointer;
+    color:var(--purple);
+  }
+  
+  .file-upload-button:hover {
+    background-color: #e8e8e8;
+  }
+  
+  .agreement-row {
+    margin-top: 20px;
+  }
+  
+  .checkbox-container {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  .checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+  }
+  
+  .checkbox-container:hover input ~ .checkmark {
+    background-color: #f9f9f9;
+  }
+  
+  .checkbox-container input:checked ~ .checkmark {
+    background-color:var(--purple);
+    border-color: var(--purple);
+  }
+  
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  .checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  .checkbox-container .checkmark:after {
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+  
+  .agreement-text {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.4;
+  }
+  
+  .modal-footer {
+    padding: 16px 20px;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid #f0f0f0;
+  }
+  
+  .save-button {
+    background-color: var(--purple);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 30px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  
+  .save-button:hover {
+    background-color:var(--purple);
+  }
+  
+  .save-button.disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .candidate-modal {
+      width: 90%;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    
+    .form-grid {
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+  }

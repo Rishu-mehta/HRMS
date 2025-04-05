@@ -45,23 +45,22 @@ export const AuthProvider = ({ children }) => {
   const handleLogin = async (credentials) => {
     try {
       setLoading(true);
-      setError(null);
-      
-      // In a real application, this would make an API call
-      const response = await axios.post(`${baseURL}/api/login`, credentials);
-      
-      const { authToken,refreshToken } = response.data;
+      setError(null); 
+  
+      const response = await axios.post(`${baseURL}/api/user/login`, credentials);
+      const { authToken, refreshToken } = response.data;
+  
       localStorage.setItem('token', authToken);
-      localStorage.setItem('refreshToken',refreshToken)
-      
-      const decoded = jwt_decode(token);
+      localStorage.setItem('refreshToken', refreshToken);
+  
+      const decoded = jwtDecode(authToken);
       setUser(decoded);
-      
-      // Set up auto-logout (2 hours as specified)
+  
+
       setTimeout(() => {
         handleLogout();
-      }, 2 * 60 * 60 * 1000); // 2 hours in milliseconds
-      
+      }, 2 * 60 * 60 * 1000);
+  
       return true;
     } catch (err) {
       setError(err.response?.data?.message || 'Login failed');
@@ -70,6 +69,7 @@ export const AuthProvider = ({ children }) => {
       setLoading(false);
     }
   };
+  
 
   const handleLogout = () => {
     localStorage.removeItem('token');
