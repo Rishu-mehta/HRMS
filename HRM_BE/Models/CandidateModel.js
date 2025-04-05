@@ -29,7 +29,16 @@ const candidateSchema = new mongoose.Schema({
     type: String,
     enum: ['New', 'Scheduled', 'Ongoing', 'Selected', 'Rejected'],
     default: 'New'
-  }
+  },
+  profile:{
+    type: String
+  },
+  department:{
+    type: String
+  },
+  dateofjoining:{
+    type: Date
+  },
 }, { timestamps: true });
 
 // Make sure this is exported as "Candidate", not "Employee"

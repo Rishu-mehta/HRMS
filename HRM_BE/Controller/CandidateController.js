@@ -71,13 +71,17 @@ const updateStatusCandidate = async (req, res) => {
 
 // GET /get-all-candidates
 const getAllCandidates = async (req, res) => {
-  try {
-    const candidates = await Candidate.find().sort({ createdAt: -1 });
-    res.status(200).json(candidates);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-};
+    try {
+      const candidates = await Candidate.find({
+        status: { $not: { $in: [/^selected$/i, /^rejected$/i] } }
+      }).sort({ createdAt: -1 });
+  
+      res.status(200).json(candidates);
+    } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
+  };
+  
 
 module.exports = {
   addCandidate,
