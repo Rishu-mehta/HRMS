@@ -2,33 +2,41 @@ const Candidate = require('../Models/CandidateModel');
 
 // POST /add-candidate
 const addCandidate = async (req, res) => {
-  try {
-    const { fullName, email, phoneNumber, position, experience } = req.body;
+    try {
+      console.log("Request body in controller:", req.body);
+      
+      const fullName = req.body.fullName;
+      const email = req.body.email; 
+      const phoneNumber = req.body.phoneNumber;
+      const position = req.body.position;
+      const experience = req.body.experience;
+  
+      console.log("Extracted fields:", { fullName, email, phoneNumber, position, experience });
+      
+      if (!req.file || !req.file.path) {
+        return res.status(400).json({ error: 'Resume file is required' });
+      }
+    
+      const resumeUrl = req.file.path;
 
-    if (!req.file || !req.file.path) {
-      return res.status(400).json({ error: 'Resume file is required' });
+      const newCandidate = await Candidate.create({
+        fullName,
+        email,
+        phoneNumber,
+        position,
+        experience,
+        resume: resumeUrl
+      });
+  
+      res.status(201).json({
+        message: 'Candidate added successfully',
+        candidate: newCandidate
+      });
+    } catch (error) {
+     
+      res.status(500).json({ error: error.message });
     }
-
-    const resumeUrl = req.file.path;
-
-    const newCandidate = await Candidate.create({
-      fullName,
-      email,
-      phoneNumber,
-      position,
-      experience,
-      resume: resumeUrl
-    });
-
-    res.status(201).json({
-      message: 'Candidate added successfully',
-      candidate: newCandidate
-    });
-  } catch (error) {
-    console.log("--------------",error);
-    res.status(500).json({ error: error.message });
-  }
-};
+  };
 
 // DELETE /delete-candidate/:id
 const deleteCandidate = async (req, res) => {

@@ -1,14 +1,13 @@
 const mongoose = require('mongoose');
 
-const CandidateSchema = new mongoose.Schema({
+const candidateSchema = new mongoose.Schema({
   fullName: {
     type: String,
-    required: [true, "Full name is required"]
+    required: true
   },
   email: {
     type: String,
-    required: [true, "Email is required"],
-    match: [/.+\@.+\..+/, "Please fill a valid email address"]
+    required: true
   },
   phoneNumber: {
     type: String,
@@ -23,14 +22,16 @@ const CandidateSchema = new mongoose.Schema({
     required: true
   },
   resume: {
-    type: String, 
+    type: String,
     required: true
   },
   status: {
     type: String,
-    enum: ['selected', 'rejected', 'new', 'ongoing', 'scheduled'],
-    default: 'new' 
+    enum: ['New', 'Scheduled', 'Ongoing', 'Selected', 'Rejected'],
+    default: 'New'
   }
-});
+}, { timestamps: true });
 
-module.exports = mongoose.model('Employee', CandidateSchema);
+// Make sure this is exported as "Candidate", not "Employee"
+const Candidate = mongoose.model('Candidate', candidateSchema);
+module.exports = Candidate;
