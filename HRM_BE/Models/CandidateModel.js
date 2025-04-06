@@ -41,6 +41,6 @@ const candidateSchema = new mongoose.Schema({
   },
 }, { timestamps: true });
 
-// Make sure this is exported as "Candidate", not "Employee"
+
 const Candidate = mongoose.model('Candidate', candidateSchema);
 module.exports = Candidate;

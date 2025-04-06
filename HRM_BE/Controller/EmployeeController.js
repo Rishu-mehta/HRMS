@@ -3,19 +3,13 @@ const employeeModel = require("../Models/CandidateModel");
 const getAllEmployee = async (req,res) => {
   try {
     const employees = await employeeModel.find({ status: [/^selected$/i] }).sort({ createdAt: -1 });
-    if(!employees || employees.length === 0) {
-      res.status(200).json({
-        success: false,
-        message: "No employees found"
-      })
+   
     
-    }
-    else{
         res.status(200).json({
             success: true,
             employees: employees
         })
-    }
+    
   } catch (err) {
     console.error("Error fetching employees:", err);
     throw err;
@@ -23,7 +17,7 @@ const getAllEmployee = async (req,res) => {
 };
 
 
-const updateEmployee=async(re,res)=>{
+const updateEmployee=async(req    ,res)=>{
     const { id } = req.params;
     const { email,fullName,position,phoneNumber,profile, department, dateofjoining } = req.body;
     try {
