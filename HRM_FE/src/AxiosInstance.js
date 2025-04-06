@@ -3,7 +3,7 @@ import { baseURL } from './Config';
 
 const instance = axios.create({
   baseURL: baseURL,
-  timeout: 10000,
+  timeout: 60000,
 });
 
 // Request Interceptor

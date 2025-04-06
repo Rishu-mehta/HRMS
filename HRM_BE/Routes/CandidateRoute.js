@@ -7,6 +7,7 @@ const router = express.Router();
 // Fix the POST route
 router.post('/', upload.single('resume'), (req, res, next) => {
   console.log('After upload middleware:', req.body);
+  console.log('Uploaded file:', req.file);
   next();
 }, addCandidate);
 

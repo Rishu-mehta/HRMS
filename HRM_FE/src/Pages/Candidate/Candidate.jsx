@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Search, ChevronDown, MoreVertical } from 'lucide-react';
+import { Search, ChevronDown, MoreVertical, CloudHail } from 'lucide-react';
 import CandidateModal from '../../Modals/CandidateModal';
 import './Candidate.css';
 import api from '../../AxiosInstance';
@@ -134,7 +134,11 @@ const Candidate = () => {
 
     try {
       setIsLoading(true);
-      const response = await api.post('/api/candidate/', formData);
+      const response = await api.post('/api/candidate/', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
 
       if (response && response.data) {
         setModalOpen(false);
@@ -170,24 +174,30 @@ const Candidate = () => {
       alert('Resume not available');
       return;
     }
-
+  
     setIsLoading(true);
+  
     try {
       const link = document.createElement('a');
       link.href = resumeUrl;
-      link.download = `${candidateName}_resume.pdf`;
+  
+     console.log(resumeUrl)
+      link.target = '_blank';
+  
+      link.setAttribute('download', `${candidateName}_resume.pdf`);
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
     } catch (error) {
       console.error('Failed to download resume:', error);
-
+      alert('Unable to download resume.');
     } finally {
       setTimeout(() => {
         setIsLoading(false);
       }, 500);
     }
   };
+  
 
   return (
     <div className="candidate-page">
