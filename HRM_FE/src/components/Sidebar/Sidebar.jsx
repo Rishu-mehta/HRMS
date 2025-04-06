@@ -11,7 +11,6 @@ const Sidebar = () => {
 
   
   const handleLogout =async () => {
-    debugger
     localStorage.clear();
      setTimeout(() => {
       window.location.reload();
