@@ -124,7 +124,7 @@ const Candidate = () => {
     const formData = new FormData();
     formData.append('fullName', candidateData.fullName);
     formData.append('email', candidateData.email);
-    formData.append('phoneNumber', candidateData.phoneNumber); 
+    formData.append('phoneNumber', candidateData.phone); 
     formData.append('position', candidateData.position);
     formData.append('experience', candidateData.experience);
     
@@ -181,7 +181,7 @@ const Candidate = () => {
       document.body.removeChild(link);
     } catch (error) {
       console.error('Failed to download resume:', error);
-      alert('There was an error downloading the resume. Please try again.');
+
     } finally {
       setTimeout(() => {
         setIsLoading(false);
@@ -308,7 +308,7 @@ const Candidate = () => {
                       {dropdownOpen === candidate._id && (
                         <div className="action-dropdown" ref={dropdownRef}>
                           <div className="dropdown-item">
-                            <button onClick={() => {
+                            <button className="edit-btn"onClick={() => {
                               downloadResume(candidate.resume, candidate.fullName);
                               setDropdownOpen(null);
                             }}>
@@ -316,7 +316,7 @@ const Candidate = () => {
                             </button>
                           </div>
                           <div className="dropdown-item">
-                            <button onClick={() => {
+                            <button className='edit-btn' onClick={() => {
                               handleDeleteCandidate(candidate._id);
                               setDropdownOpen(null);
                             }}>

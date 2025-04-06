@@ -12,20 +12,20 @@ export const AuthProvider = ({ children }) => {
   const [error, setError] = useState(null);
   
   useEffect(() => {
-    // Check for token in localStorage
+    
     const token = localStorage.getItem('token');
     if (token) {
       try {
-        // Decode token to get user info
+      
         const decoded = jwtDecode(token);
         
         // Check if token is expired
         const currentTime = Date.now() / 1000;
         if (decoded.exp < currentTime) {
-          // Token expired, logout user
+        
           handleLogout();
         } else {
-          // Set user info
+         
           setUser(decoded);
           
           // Set up auto-logout

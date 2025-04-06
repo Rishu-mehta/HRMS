@@ -1,0 +1,31 @@
+.status-badge.no-attendance {
+   
+    color: #333;
+    border-color: hsl(0, 0%, 88%);
+  }
+  
+  .status-badge.medical-leave {
+   
+    color: #ffa000;
+    border-color: hsl(0, 0%, 88%);
+  }
+  
+  .status-badge.work-from-home {
+  
+    color: #1976d2;
+    border-color: hsl(0, 0%, 88%);
+  }
+  
+  .status-badge.present {
+   
+    color:rgb(53, 218, 53);
+    border-color: hsl(0, 0%, 88%);
+  }
+  
+  .status-badge.absent {
+   
+    color: #d32f2f;
+    border-color: hsl(0, 0%, 88%);
+  }
+
+

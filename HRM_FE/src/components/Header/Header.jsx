@@ -9,13 +9,13 @@ const getPageTitle = () => {
     case '/':
       return 'Candidates';
     case '/candidates':
-      return 'Candidate Management';
+      return 'Candidate';
     case '/employees':
-      return 'Employee Management';
+      return 'Employee';
     case '/attendance':
-      return 'Attendance Management';
+      return 'Attendance';
     case '/leaves':
-      return 'Leaves Management';
+      return 'Leaves';
     default:
       return 'HRMS Dashboard';
   }

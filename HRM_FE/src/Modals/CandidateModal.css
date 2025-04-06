@@ -7,7 +7,7 @@
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.5);
     display: flex;
-   
+    
     align-items: center;
     justify-content: center;
     z-index: 1000;
@@ -20,6 +20,7 @@
     max-width: 800px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     overflow: hidden;
+    
   }
   
   .modal-header {
@@ -227,4 +228,103 @@
       grid-template-columns: 1fr;
       gap: 15px;
     }
+  }
+
+
+  /* Add these styles to your CandidateModal.css file */
+
+.position-dropdown {
+    position: relative;
+    width: 100%;
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 999; 
+  }
+  
+ 
+  .modal-body {
+    position: relative;
+    overflow: visible; /* Allow dropdown to overflow its parent */
+  }
+  
+  .candidate-modal {
+    position: relative;
+    overflow: visible; /* Allow content to overflow when needed */
+  }
+  
+
+  
+  .dropdown-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .dropdown-item:hover {
+    background-color: #f5f5f5;
+  }
+  
+  /* Currently selected option styling */
+  .dropdown-item.selected {
+    background-color: #f0f0f0;
+  }
+  
+  /* Form label styling */
+  .form-label {
+    display: block;
+    font-size: 0.9rem;
+    color: #5a5a5a;
+    margin-bottom: 5px;
+  }
+  
+  /* Date input wrapper for calendar icon */
+  .date-input-wrapper {
+    position: relative;
+    width: 100%;
+  }
+  
+  .calendar-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+    pointer-events: none;
+  }
+  
+  /* Purple header and button styling */
+  .modal-header {
+    background-color: #4B0082;
+    color: white;
+  }
+  
+  .save-button {
+    background-color: #4B0082;
+  }
+  
+  .save-button:hover:not(.disabled) {
+    background-color: #6A0DAD;
+  }
+  
+  /* Dropdown arrow style */
+  .position-dropdown span {
+    font-size: 12px;
+    color: #777;
+  }
+  
+  /* Prevent potential overflow issues */
+  .modal-overlay {
+    overflow: hidden;
   }

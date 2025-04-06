@@ -6,7 +6,7 @@ import './index.css'
 
 import Employees from './Pages/Employee/Employee';
 import Attendance from './Pages/Attendance/Attendance';
-// import Leaves from './components/leaves/Leaves';
+import Leave from './Pages/Leave/Leave';
 import Sidebar from './components/Sidebar/Sidebar';
 import Header from './components/Header/Header';
 import Candidates from './Pages/Candidate/Candidate';
@@ -26,11 +26,12 @@ function App() {
               <Route path="/employees" element={<ProtectedRoute><Layout><Employees /></Layout></ProtectedRoute>} />
               <Route path="/" element={<ProtectedRoute><Layout><Candidates /></Layout></ProtectedRoute>} />
               <Route path="/attendance" element={<ProtectedRoute><Layout><Attendance /></Layout></ProtectedRoute>} />
-           {/* 
+              <Route path="/leaves" element={<ProtectedRoute><Layout><Leave /></Layout></ProtectedRoute>} />
+           
            
             
-            <Route path="/leaves" element={<ProtectedRoute><Layout><Leaves /></Layout></ProtectedRoute>} />
-             <Route path="*" element={<Navigate to="/" replace />} />  */}
+           
+             <Route path="*" element={<Navigate to="/" replace />} /> 
           </Routes>
         
       </Router>

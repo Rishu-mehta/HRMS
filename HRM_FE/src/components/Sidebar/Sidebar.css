@@ -143,3 +143,11 @@
     display: flex;
   }
 }
+.logout-navlink{
+  margin-left:20px;
+  color:#333
+}
+.logout-navlink:hover{
+  color:#5a0fc8;
+  font-weight:500;
+}
