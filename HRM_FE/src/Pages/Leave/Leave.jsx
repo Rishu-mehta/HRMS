@@ -6,18 +6,18 @@ import './Leaves.css';
 const initialLeaves = [
     {
         id: 1,
-        name: "Cody Fisher",
-        position: "Senior Backend Developer",
-        date: "8/09/24",
-        reason: "Visiting House",
+        name: "Rishu",
+        position: "Backend Developer",
+        date: "05/04/25",
+        reason: "Sick Leave",
         status: "Approved",
         hasDocuments: false
     },
     {
         id: 2,
-        name: "Jane Cooper",
+        name: "Shivam",
         position: "Full Time Designer",
-        date: "10/09/24",
+        date: "04/04/25",
         reason: "Visiting House",
         status: "Pending",
         hasDocuments: true
