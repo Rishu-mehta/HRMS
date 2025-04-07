@@ -14,3 +14,4 @@ router.get("/", leaveController.getAllLeaves);
 router.patch("/:leaveId/status", leaveController.updateLeaveStatus);
 
 module.exports = router;
+    

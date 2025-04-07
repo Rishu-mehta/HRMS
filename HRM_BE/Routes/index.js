@@ -8,6 +8,6 @@ const leaveRouter = require("./LeaveRoute");
 router.use("/user", userRouter);
 router.use("/candidate",candidateRouter);
 router.use("/employee",employeeRouter);
-router.use("/leave",leaveRouter);
+router.use("/leaves",leaveRouter);
 
 module.exports = router;  

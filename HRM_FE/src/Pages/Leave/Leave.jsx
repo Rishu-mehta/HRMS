@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Calendar, ChevronLeft, ChevronRight, FileText, ChevronDown } from 'lucide-react';
 import './Leaves.css';
+import LeaveModal from '../../Modals/LeaveModal';
+
 
 // Sample data
 const initialLeaves = [
@@ -30,6 +32,8 @@ const Leave = () => {
     const [selectedDate, setSelectedDate] = useState(null);
     const [statusFilter, setStatusFilter] = useState("All");
     const [isStatusDropdownOpen, setIsStatusDropdownOpen] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
 
     // Get approved leaves for the selected date
     const getApprovedLeaves = () => {
@@ -174,7 +178,7 @@ const Leave = () => {
                     <div className="lm-search-container">
                         <input type="text" placeholder="Search" className="lm-search-input" />
                     </div>
-                    <button className="lm-add-btn">Add Leave</button>
+                    <button onClick={() =>setIsModalOpen(true)}className="lm-add-btn">Add Leave</button>
                 </div>
             </div>
            <div className="lm-bottom">
@@ -273,6 +277,12 @@ const Leave = () => {
                 </div>
             </div>
         </div>
+        <LeaveModal
+        onClose={() => {setIsModalOpen(false)}}
+        isOpen={isModalOpen}
+        onSave={() => {}}
+
+        />
         </div>
     );
 }
